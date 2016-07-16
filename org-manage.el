@@ -198,23 +198,16 @@
       (list (make-ctbl:cmodel
              :title "Date"
              :sorter 'ctbl:sort-string-lessp
-             :min-width 10
+             :align 'left)
+            (make-ctbl:cmodel
+             :title "Category"
              :align 'left)
             (make-ctbl:cmodel
              :title "Title"
-             :align 'left
-             :min-width 40
-             :max-width 80)
-            (make-ctbl:cmodel
-             :title "Category"
-             :align 'left
-             :min-width 20
-             :max-width 30)
+             :align 'left)
             (make-ctbl:cmodel
              :title "Filename"
-             :align 'left
-             :min-width 40
-             :max-width 140)
+             :align 'left)
             )))))
 
 (defun org-manage-extract-properties-file (filename)
@@ -241,7 +234,7 @@
 	    )
           (setq plist (list  ; build list: date;title;category;shortname;filename
 		       (format-time-string org-manage-date-format (nth 5 (file-attributes filename 'string)))
-		        title category shortname filename)
+		        category title shortname filename)
 		)
 	  )
       plist)))
